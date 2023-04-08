@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "repository": "https://github.com/robinweser/react-controlled-form",
+  "author": "Robin Weser",
+  "license": "MIT",
+  "scripts": {
+    "build": "lerna run build",
+    "clean": "rimraf _book && lerna run clean",
+    "format": "prettier --write \"examples/*/pages/**/*.js\" && prettier --write \"packages/*/src/**/*.js\"",
+    "check": "yarn format && yarn coverage",
+    "coverage": "lerna run coverage",
+    "release": "yarn run check && yarn build && lerna publish --force-publish",
+    "test": "lerna run test",
+    "postinstall": "yarn build"
+  },
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.6.0",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.2"
+  }
+}
